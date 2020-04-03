@@ -15,24 +15,23 @@ public class Feed implements FeedInterface {
 	@Override
 	public void loadFeedItems(Integer cant) {
 		
-		Integer i=0;
+		Integer i=1;
 		Scanner input = new Scanner(System.in);
 		String title,content,link;
 		
-		while(i < cant) {
-			int cont =i++;
-			System.out.println("=========== Item "+cont +" ===============");			
+		while(i <= cant) {
+			System.out.println("..........Item "+ i +"................");			
 			System.out.print("Please enter title: ");
 			title = input.nextLine();
 			System.out.print("Please enter link: ");
 			link = input.nextLine();
 			System.out.print("Please enter content: ");
 			content = input.nextLine();
-			FeedItem myFeedItem = new FeedItem(title,link,content);
-			this.listFeeds.add(myFeedItem);
+			this.listFeeds.add(new FeedItem(title,link,content));
+			i++;
 		}
 		
-		if(i != 0)
+		if(this.listFeeds.size() != 0)
 			this.empty = false;
 		
 	}
